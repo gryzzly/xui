@@ -106,7 +106,7 @@ xui.extend({
             if(req.readyState==4) {
                 delete(that.xmlHttpRequest);
                 if(req.status===0 || req.status==200) req.handleResp(); 
-                if((/^[45]/).test(req.status)) req.handleError();
+                if((/^[45]/).test(req.status)) req.handleError(req.status); // send req status to the error handler
             }
         }
         if(async) {
